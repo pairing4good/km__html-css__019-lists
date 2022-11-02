@@ -1,14 +1,10 @@
-# 018 Floating
+# 019 Lists
 
-[![018 Floating](https://img.youtube.com/vi/NalLy4pQS2c/0.jpg)](https://www.youtube.com/watch?v=NalLy4pQS2c)
+[![019 Lists](https://img.youtube.com/vi/tlScAMXZj2k/0.jpg)](https://www.youtube.com/watch?v=tlScAMXZj2k)
 
 The `index.html` file
-- should style `left` class to display to the left with the text wrapping around the image
-- should style `right` class to display to the right with the text wrapping around the image
-- should style `default` class to display on the same side that the body that is set in the `style.css`
-- should style `below` class to display below the image
+- should style `roman-numeral` class to display list items with an upper case roman numeral
+- should style `bullet-point` class to display list items with a the outline of a circle
 
 Resources:
-- https://www.w3schools.com/css/css_float.asp
-
-
+- https://www.w3schools.com/cssref/pr_list-style-type.asp

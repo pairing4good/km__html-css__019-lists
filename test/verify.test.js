@@ -36,47 +36,24 @@ afterEach(async () => {
   await browser.close();
 });
 
-describe('the left class', () => {
-  it('should display to the left with the text wrapping around the image', async () => {
-    const float = await page.$eval('div[class="left"]', (div) => {
-      let style = window.getComputedStyle(div);
-      return style.getPropertyValue('float');
+describe('the roman-numeral list', () => {
+  it('should display items with an upper case roman numeral', async () => {
+    const listStyleType = await page.$eval('ul[class="roman-numeral"]', (list) => {
+      let style = window.getComputedStyle(list);
+      return style.getPropertyValue('list-style-type')
     });
-    
-    expect(float).toBe("left");
+      
+    expect(listStyleType).toBe('upper-roman')
   });
 });
 
-describe('the right class', () => {
-  it('should display to the right with the text wrapping around the image', async () => {
-    const float = await page.$eval('div[class="right"]', (div) => {
-      let style = window.getComputedStyle(div);
-      return style.getPropertyValue('float');
+describe('the bullet-point list', () => {
+  it('should display items with a the outline of a circle', async () => {
+    const listStyleType = await page.$eval('ul[class="bullet-point"]', (list) => {
+      let style = window.getComputedStyle(list);
+      return style.getPropertyValue('list-style-type')
     });
-    
-    expect(float).toBe("right");
+      
+    expect(listStyleType).toBe('circle')
   });
-});
-
-describe('the default class', () => {
-  it('should display on the same side that the body that is set in the style.css', async () => {
-    const letiableDefinitionCount = await page.$eval('style', (style) => {
-      return style.innerHTML.match(/\.default.*{[\s\S][^}]*float:.*inherit;/g).length;
-    });
-    
-    expect(letiableDefinitionCount).toEqual(1);
-  });
-});
-
-describe('the below class', () => {
-  it('should display below the image', async () => {
-    const clear = await page.$eval('div[class="below"]', (div) => {
-      let style = window.getComputedStyle(div);
-      return style.getPropertyValue('clear')
-    });
-    
-    let setToBoth = clear === 'both';
-    let setToLeft = clear === 'left';
-    expect(setToBoth || setToLeft).toBe(true);
-  });
-});
+})
